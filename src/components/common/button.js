@@ -10,16 +10,16 @@ module.exports = React.createClass({
 	render: function(){
 		return (
 			<TouchableHighlight 
-				style={styles.button}
+				style={this.props.style}
 				underlayColor={'gray'}
 				onPress={this.props.onPress}
 				>
-				<Text style={GCFont.buttonFont}>{this.props.text}</Text>
+				<Text style={this.props.textStyle}>{this.props.text}</Text>
 			</TouchableHighlight>
 		);
 	}
 });
-
+/*
 var styles = StyleSheet.create({
 	button: {
 		justifyContent: 'center',
@@ -31,3 +31,4 @@ var styles = StyleSheet.create({
 		backgroundColor: '#fffafa'
 	}
 });
+*/

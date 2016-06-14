@@ -3,10 +3,12 @@ import {
   StyleSheet,
   Navigator
 } from 'react-native';
-import Signup from './components/authentication/signup';
+import Dashboard from './components/authentication/dashboard';
+import Menu from './components/order/menu';
 
 var ROUTES = {
-	signup: Signup
+	dashboard: Dashboard,
+	menu: Menu
 };
 
 module.exports = React.createClass({
@@ -14,8 +16,9 @@ module.exports = React.createClass({
 		return (
 			<Navigator 
 				style={styles.container}
-				initialRoute={{name: 'signup'}}
+				initialRoute={{name: 'dashboard'}}
 				renderScene={this.renderScene}
+				configureScene={() => { return Navigator.SceneConfigs.FloatFromBottom; }}
 			/>
 		);
 	},
