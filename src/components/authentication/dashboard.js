@@ -49,7 +49,6 @@ module.exports = React.createClass({
 	},
 
 	letGoPress: function() {
-		console.log("let go press");
 	}
 });
 
