@@ -49,6 +49,7 @@ module.exports = React.createClass({
 	},
 
 	letGoPress: function() {
+		this.props.navigator.push({name: 'signup'});
 	}
 });
 

@@ -5,10 +5,12 @@ import {
 } from 'react-native';
 import Dashboard from './components/authentication/dashboard';
 import Menu from './components/order/menu';
+import Signup from './components/authentication/signup';
 
 var ROUTES = {
 	dashboard: Dashboard,
-	menu: Menu
+	menu: Menu,
+	signup: Signup
 };
 
 module.exports = React.createClass({
