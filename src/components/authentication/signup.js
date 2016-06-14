@@ -5,6 +5,7 @@ import {
   View,
   Image
 } from 'react-native';
+import Button from '../common/button';
 
 module.exports = React.createClass({
 	render: function() {
