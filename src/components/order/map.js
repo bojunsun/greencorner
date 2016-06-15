@@ -4,22 +4,25 @@ import {
   View,
   Text
 } from 'react-native';
+import MapView from 'react-native-maps'
 
 module.exports = React.createClass({
 	render: function() {
-		return (
-			<View style={styles.container}>
-				<Text>This is Map page</Text>
-			</View>
-		);
+	  return (
+	    <MapView style={styles.container}
+    initialRegion={{
+      latitude: 47.6103750,
+      longitude: -122.3413610,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    }}
+  />
+	  );
 	}
 });
 
 var styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: 'white'
+	container:{
+		flex: 1
 	}
 });
