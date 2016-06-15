@@ -45,7 +45,7 @@ module.exports = React.createClass({
 	},
 
 	orderNowPress: function() {
-		this.props.navigator.push({name: 'menu'});
+		this.props.navigator.push({name: 'map'});
 	},
 
 	letGoPress: function() {

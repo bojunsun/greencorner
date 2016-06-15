@@ -7,25 +7,27 @@ import {
 } from 'react-native';
 import GCFont from '../common/gcfont';
 import Button from '../common/button';
+import Config from '../common/config';
+import Api from '../common/api';
 
 module.exports = React.createClass({
 	getInitialState: function() {
 		return {
 			username: '',
-			password: '',
-			passwordConfirm: ''
+			password: ''
 		};
 	},
 	render: function() {
 		return (
 			<View style={styles.container}>
-				<Text style={GCFont.commonText}>Sign Up page</Text>
+				<Text>This is Login page</Text>
 				<Text>Username: </Text>
 				<TextInput
 					value={this.state.username}
 					onChangeText={(text) => this.setState({username: text})}
 					style={styles.input} 
 				/>
+
 				<Text>Password: </Text>
 				<TextInput
 					secureTextEntry={true} 
@@ -33,47 +35,32 @@ module.exports = React.createClass({
 					onChangeText={(text) => this.setState({password: text})}
 					style={styles.input} 
 				/>
-				<Text>Confirm Password: </Text>
-				<TextInput
-					secureTextEntry={true} 
-					value={this.state.passwordConfirm}
-					onChangeText={(text) => this.setState({passwordConfirm: text})}
-					style={styles.input} 
-				/>
+
 				<Button  
 					style={styles.signupButton}
-					text={'Sign Up'} 
+					text={'Log in'} 
 					textStyle={GCFont.buttonFont} 
-					onPress={this.signupPress} 
+					onPress={this.loginPress} 
 				/>
+
 				<Button  
 					style={styles.signupButton}
-					text={'Already have an account'} 
+					text={'Return Sign Up'} 
 					textStyle={GCFont.buttonFont} 
-					onPress={this.haveAccountPress} 
+					onPress={this.returnSignupPress} 
 				/>
-				<Button  
-					style={styles.signupButton}
-					text={'Return to dashboard'} 
-					textStyle={GCFont.buttonFont} 
-					onPress={this.returnDashPress} 
-				/>
+
 			</View>
 		);
 	},
-
-	signupPress: function() {
-		console.log("sign up press");
+	loginPress: function() {
+		Api.login(this.state.username, this.state.password).then((data) => {
+			console.log(data);
+		});
 	},
-
-	haveAccountPress: function() {
-		this.props.navigator.push({name: 'login'});
-	},
-
-	returnDashPress: function() {
+	returnSignupPress: function() {
 		this.props.navigator.pop();
 	}
-
 });
 
 var styles = StyleSheet.create({
